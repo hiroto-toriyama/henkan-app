@@ -1,7 +1,11 @@
 const TopPage = () => {
   return  (
-    <div className="btn btn-primary">
-      Hello World!
+    <div data-theme="dark">
+      <div className="container mx-auto">
+        <div className="btn btn-primary">
+          Hello World!
+        </div>
+      </div>
     </div>
   );
 };
