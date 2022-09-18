@@ -1,6 +1,6 @@
 const TopPage = () => {
   return  (
-    <div>
+    <div className="btn btn-primary">
       Hello World!
     </div>
   );
