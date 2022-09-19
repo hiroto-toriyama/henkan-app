@@ -10,6 +10,7 @@ const Header = () => {
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
           <li><Link to="/full-half">全角/半角</Link></li>
+          <li><Link to="/csv-tsv">csv/tsv</Link></li>
           <li tabIndex={0}>
             <a>
               Parent
