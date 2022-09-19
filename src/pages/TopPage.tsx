@@ -8,7 +8,7 @@ const TopPage = () => {
       <Header />
       <div className="grow container mx-auto my-5">
         <Link to="/full-half" className="btn btn-primary">
-          全角／半角
+          全角/半角
         </Link>
       </div>
       <Footer />
