@@ -56,7 +56,7 @@ const FullHalfPage = () => {
           <label className="label">
             <span className="label-text">Output Text</span>
           </label> 
-          <textarea value={full2half(text)} className="textarea textarea-bordered h-36" placeholder="ここに変換結果が表示されます" spellCheck={false}></textarea>
+          <textarea value={full2half(text)} onChange={()=>{}} className="textarea textarea-bordered h-36" placeholder="ここに変換結果が表示されます" spellCheck={false}></textarea>
         </div>
       </div>
       <Footer />
