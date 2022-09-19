@@ -8,14 +8,16 @@ const CsvTsvPage = () => {
     setText(e.target.value);
   };
   const csv2tsv = (str: string) => {
-    return str;
+    return str.replace(/[,]/g, (s) => {
+      return "\t";
+    });
   };
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <div className="grow container mx-auto my-5 p-5">
-        <div className="font-bold text-2xl mb-5">全角を半角に変換</div>
+        <div className="font-bold text-2xl mb-5">csvをtsvに変換</div>
         <div className="form-control mb-5">
           <label className="label">
             <span className="label-text">Input Text</span>
