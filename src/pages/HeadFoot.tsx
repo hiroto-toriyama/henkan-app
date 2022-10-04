@@ -15,6 +15,8 @@ const isTransKey = (str: any): str is transKeyType => {
 
 const HeadFootPage = () => {
   const [text, setText] = useState("");
+  const [headWord, setHeadWord] = useState("");
+  const [footWord, setFootWord] = useState("");
   const [radioInput, setRadioInput] = useState<transKeyType>("csv");
   const [radioOutput, setRadioOutput] = useState<transKeyType>("tsv");
   const transKey: transKeyType[] = ["csv", "tsv", "ssv"];
@@ -25,10 +27,9 @@ const HeadFootPage = () => {
   };
 
   const trans = (str: string) => {
-    const reg = new RegExp(transMap[radioInput], 'g');
-    return str.replace(reg, (s) => {
-      return transMap[radioOutput];
-    });
+    return str.split("\n").map((line) => {
+      return headWord + line + footWord;
+    }).join("\n");
   };
 
   return (
@@ -37,26 +38,32 @@ const HeadFootPage = () => {
       
       <div className="grow container mx-auto my-5 p-5">
 
-        <div className="font-bold text-2xl mb-5">{radioInput}を{radioOutput}に変換</div>
+        <div className="font-bold text-2xl mb-5">先頭と末尾に追加</div>
 
-        <div className="flex my-5">
-          <RadioButtonList name="radio-input" value={transKey} onChange={(e)=>{isTransKey(e.target.value) ? setRadioInput(e.target.value) : {}}} state={radioInput} />
-          <div className="my-auto mx-12">
-            <AiFillCaretRight size={24} />
-          </div>
-          <RadioButtonList name="radio-output" value={transKey} onChange={(e)=>{isTransKey(e.target.value) ? setRadioOutput(e.target.value) : {}}} state={radioOutput} />
+        <div className="form-control my-5">
+          <label className="label">
+            <span className="label-text">先頭に追加する文字列</span>
+          </label> 
+          <input type="text" value={headWord} onChange={(e)=>{setHeadWord(e.target.value)}} className="input input-bordered" placeholder="ここに入力してください" spellCheck={false}></input>
         </div>
 
         <div className="form-control my-5">
           <label className="label">
-            <span className="label-text">Input Text ({radioInput}) </span>
+            <span className="label-text">末尾に追加する文字列</span>
+          </label> 
+          <input type="text" value={footWord} onChange={(e)=>{setFootWord(e.target.value)}} className="input input-bordered" placeholder="ここに入力してください" spellCheck={false}></input>
+        </div>
+
+        <div className="form-control my-5">
+          <label className="label">
+            <span className="label-text">Input Text</span>
           </label> 
           <textarea value={text} onChange={(e)=>{setText(e.target.value)}} className="textarea textarea-bordered h-36" placeholder="ここに入力してください" spellCheck={false}></textarea>
         </div>
 
         <div className="form-control my-5">
           <label className="label">
-            <span className="label-text">Output Text ({radioOutput}) </span>
+            <span className="label-text">Output Text</span>
           </label> 
           <textarea value={trans(text)} onChange={()=>{}} className="textarea textarea-bordered h-36" placeholder="ここに変換結果が表示されます" spellCheck={false}></textarea>
         </div>
