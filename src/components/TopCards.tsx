@@ -1,15 +1,17 @@
-import TopCard from "./TopCard";
+import TopCard, { TopCardPropsType } from "./TopCard";
 
-const TopCards = () => {
-  const title = "全角/半角";
-  const text = "全角の文章を半角の文章に変換したり、半角の文章を全角の文章に変換できたりするよ";
-  const linkTo = "/full-half";
+export type TopCardsPropsType = {
+  topCardsProps: TopCardPropsType[] 
+};
 
+const TopCards = ({topCardsProps}: TopCardsPropsType) => {
   return (
     <div className="flex flex-wrap my-5 -m-5">
-      <TopCard title={title} text={text} linkTo={linkTo} />
-      <TopCard title={title} text={text} linkTo={linkTo} />
-      <TopCard title={title} text={text} linkTo={linkTo} />
+      {
+        topCardsProps.map((topCardProps) => {
+          return <TopCard title={topCardProps.title} text={topCardProps.text} linkTo={topCardProps.linkTo} />;
+        })
+      }
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-type TopCardPropsType = {
+export type TopCardPropsType = {
   title: string;
   text: string;
   linkTo: string;
