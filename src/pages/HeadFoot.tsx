@@ -1,30 +1,11 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useState } from "react";
-import { AiFillCaretRight } from "react-icons/ai";
-import RadioButtonList from "../components/RadioButtonList";
-
-type transKeyType = "csv" | "tsv" | "ssv";
-type transMapType = {
-  [key in transKeyType]: string;
-};
-
-const isTransKey = (str: any): str is transKeyType => {
-  return str === "csv" || str === "tsv" || str === "ssv";
-}
 
 const HeadFootPage = () => {
   const [text, setText] = useState("");
   const [headWord, setHeadWord] = useState("");
   const [footWord, setFootWord] = useState("");
-  const [radioInput, setRadioInput] = useState<transKeyType>("csv");
-  const [radioOutput, setRadioOutput] = useState<transKeyType>("tsv");
-  const transKey: transKeyType[] = ["csv", "tsv", "ssv"];
-  const transMap: transMapType = {
-    "csv": ",",
-    "tsv": "\t",
-    "ssv": " ",
-  };
 
   const trans = (str: string) => {
     return str.split("\n").map((line) => {
