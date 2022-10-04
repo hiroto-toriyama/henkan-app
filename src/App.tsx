@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import TopPage from './pages/TopPage';
 import FullHalfPage from './pages/FullHalfPage';
 import CsvTsvPage from './pages/CsvTsvPage';
-import HeadFootPage from './pages/HeadFoot';
+import HeadFootPage from './pages/HeadFootPage';
 
 function App() {
   return (
