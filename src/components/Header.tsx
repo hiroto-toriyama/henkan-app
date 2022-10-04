@@ -11,6 +11,7 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">
           <li><Link to="/full-half">全角/半角</Link></li>
           <li><Link to="/csv-tsv">csv/tsv</Link></li>
+          <li><Link to="/head-foot">先頭/末尾</Link></li>
           <li tabIndex={0}>
             <a>
               Parent
@@ -21,7 +22,6 @@ const Header = () => {
               <li><a>Submenu 2</a></li>
             </ul>
           </li>
-          <li><a>Item 3</a></li>
         </ul>
       </div>
     </div>
