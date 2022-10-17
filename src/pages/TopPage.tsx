@@ -17,7 +17,7 @@ const TopPage = () => {
     {
       title: "先頭/末尾",
       text: "文章各行の先頭や末尾に任意の文字列を追加できるよ",
-      linkTo: "/csv-tsv"
+      linkTo: "/head-foot"
     },
   ];
 
